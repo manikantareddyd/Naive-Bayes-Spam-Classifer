@@ -1,0 +1,80 @@
+########################
+Running on part 1
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:18
+Misclassified Spam:17
+Misclassified nSpam:1
+########################
+Running on part 2
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:22
+Misclassified Spam:18
+Misclassified nSpam:4
+########################
+Running on part 3
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:20
+Misclassified Spam:15
+Misclassified nSpam:5
+########################
+Running on part 4
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:17
+Misclassified Spam:17
+Misclassified nSpam:0
+########################
+Running on part 5
+Total Mails: 290
+Total Spam: 48
+Total nSpam: 242
+Total Misclassified:26
+Misclassified Spam:26
+Misclassified nSpam:0
+########################
+Running on part 6
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:13
+Misclassified Spam:13
+Misclassified nSpam:0
+########################
+Running on part 7
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:21
+Misclassified Spam:21
+Misclassified nSpam:0
+########################
+Running on part 8
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:27
+Misclassified Spam:25
+Misclassified nSpam:2
+########################
+Running on part 9
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:21
+Misclassified Spam:18
+Misclassified nSpam:3
+########################
+Running on part 10
+Total Mails: 291
+Total Spam: 49
+Total nSpam: 242
+Total Misclassified:28
+Misclassified Spam:28
+Misclassified nSpam:0
