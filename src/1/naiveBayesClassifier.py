@@ -5,12 +5,15 @@ from email import message_from_string
 from BeautifulSoup import BeautifulSoup as BS
 from re import split
 import sys 
+
+#############################################################################
+#Misc INIT
 dirList=[1,2,3,4,5,6,7,8,9,10]
 dirList.remove(int(sys.argv[1]))
 
 #############################################################################
 All_files=[]
-for i in [1,2,3,4,5,6,7,8,9]:
+for i in dirList:
 	for j in listdir('data/part'+str(i)):
 		All_files.append('data/part'+str(i)+'/'+j)
 

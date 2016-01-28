@@ -14,7 +14,7 @@ stop = nltk.corpus.stopwords.words('english')
 lemmatizer=nltk.stem.WordNetLemmatizer()
 #############################################################################
 All_files=[]
-for i in [1,2,3,4,5,6,7,8,9]:
+for i in dirList:
 	for j in listdir('data/part'+str(i)):
 		All_files.append('data/part'+str(i)+'/'+j)
 
