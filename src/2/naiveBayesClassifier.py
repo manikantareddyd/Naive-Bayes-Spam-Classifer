@@ -1,16 +1,20 @@
 import numpy as np
 from os import listdir
-import nltk
 from email import message_from_string
 from BeautifulSoup import BeautifulSoup as BS
 from re import split
-import sys 
+import sys 																				
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction.text import CountVectorizer
+from nltk.corpus import stopwords
 
-###############################################################################
+#############################################################################
 #Misc INIT
 dirList=[1,2,3,4,5,6,7,8,9,10]
 dirList.remove(int(sys.argv[1]))
-stop = nltk.corpus.stopwords.words('english')
+count_vectorizer = CountVectorizer()
+classifier = MultinomialNB()
+stop = stopwords.words('english')
 
 #############################################################################
 All_files=[]
@@ -32,7 +36,12 @@ for i in All_files:
 for n in range(len(mails)):
   html = mails[n]['mail']
   text = ' '.join(BS(html).findAll(text=True))
-  mails[n]['words'] =[i for i in split('\W+', text) if i not in stop]
+  words =[i for i in split('\W+', text) if i not in stop]
+  text = ' '.join(words)
+  mails[n]['text'] = text
+
+train_counts = count_vectorizer.fit_transform([i['text'] for i in mails])
+train_labels = [(i['category']=='nspam') for i in mails]
 
 ##############################################################################
 test_files=[]
@@ -54,48 +63,42 @@ for i in test_files:
 for n in range(len(test_mails)):
   html = test_mails[n]['mail']
   text = ' '.join(BS(html).findAll(text=True))
-  test_mails[n]['words'] =[i for i in split('\W+', text) if i not in stop]
+  words =[i for i in split('\W+', text) if i not in stop]
+  text = ' '.join(words)
+  test_mails[n]['text'] = text
+
+test_counts		 = count_vectorizer.transform([i['text'] for i in test_mails])
+test_labels      = [(i['category']=='nspam') for i in test_mails ]
 
 ###############################################################################
 
-all_words = nltk.FreqDist(w.lower() for d in mails for w in d['words'])
-word_features = all_words.keys()[:2000]
-
-def features(mail):
-  mail_words = set(mail['words'])
-  features = {}
-  for word in word_features:
-    features['contains(%s)' % word] = (word in mail_words)
-  return features
-
-featuresets = [(features(d), d['category']) for d in mails]
-classifier = nltk.NaiveBayesClassifier.train(featuresets)
+classifier.fit(train_counts,train_labels)
 
 ################################################################################
-
-test_featuresets = [(features(d), d['category']) for d in test_mails]
 
 c=0
 c_s=0
 c_ns=0
 c_ws=0
 c_wns=0
+
 for i in range(len(test_mails)):
-	t_value=classifier.classify(test_featuresets[i][0])
-	if test_featuresets[i][1]=='spam': 
+	t_value = classifier.predict(test_counts[i])
+	if test_labels[i]==0: 
 		c_s=c_s+1
 	else:
 		c_ns=c_ns+1
 	po=0
-	if test_featuresets[i][1]!=str(t_value):
+	if test_labels[i]!=t_value:
 		c=c+1
-		if t_value=='nspam':
+		if t_value==1:
 			c_ws=c_ws+1
 		else:
 			c_wns=c_wns+1
-#################################################################################
 
-print "#"*24
+################################################################################
+
+print "#######################################"
 print "Running on part",sys.argv[1]
 print "Total Mails:",len(test_mails)
 print "Total Spam:", c_s
