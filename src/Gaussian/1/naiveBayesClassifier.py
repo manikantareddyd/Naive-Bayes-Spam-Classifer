@@ -1,16 +1,18 @@
 import numpy as np
 from os import listdir
-import nltk
 from email import message_from_string
 from BeautifulSoup import BeautifulSoup as BS
 from re import split
-import sys 
-
+import sys 																				
+from sklearn.naive_bayes import GaussianNB
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import *
 #############################################################################
 #Misc INIT
 dirList=[1,2,3,4,5,6,7,8,9,10]
 dirList.remove(int(sys.argv[1]))
-
+count_vectorizer = CountVectorizer()
+classifier = GaussianNB()
 #############################################################################
 All_files=[]
 for i in dirList:
@@ -32,7 +34,9 @@ for n in range(len(mails)):
   html = mails[n]['mail']
   text = ' '.join(BS(html).findAll(text=True))
   mails[n]['text'] = text
-  mails[n]['words'] = split('\W+', text)
+
+train_counts = count_vectorizer.fit_transform([i['text'] for i in mails])
+train_labels = [(i['category']=='nspam') for i in mails]
 
 ##############################################################################
 test_files=[]
@@ -55,46 +59,42 @@ for n in range(len(test_mails)):
   html = test_mails[n]['mail']
   text = ' '.join(BS(html).findAll(text=True))
   test_mails[n]['text'] = text
-  test_mails[n]['words'] = split('\W+', text)
+
+test_counts		 = count_vectorizer.transform([i['text'] for i in test_mails])
+test_labels      = [(i['category']=='nspam') for i in test_mails ]
 
 ###############################################################################
 
-all_words = nltk.FreqDist(w.lower() for d in mails for w in d['words'])
-word_features = all_words.keys()[:2000]
-
-def features(mail):
-  mail_words = set(mail['words'])
-  features = {}
-  for word in word_features:
-    features['contains(%s)' % word] = (word in mail_words)
-  return features
-
-featuresets = [(features(d), d['category']) for d in mails]
-classifier = nltk.NaiveBayesClassifier.train(featuresets)
+classifier.fit(train_counts.toarray(),train_labels)
 
 ################################################################################
-
-test_featuresets = [(features(d), d['category']) for d in test_mails]
 
 c=0
 c_s=0
 c_ns=0
 c_ws=0
 c_wns=0
+
+predicted_labels=[]
 for i in range(len(test_mails)):
-	t_value=classifier.classify(test_featuresets[i][0])
-	if test_featuresets[i][1]=='spam': 
+	t_value = classifier.predict(test_counts[i].toarray())
+	predicted_labels.append(int(t_value))
+	if test_labels[i]==0: 
 		c_s=c_s+1
 	else:
 		c_ns=c_ns+1
 	po=0
-	if test_featuresets[i][1]!=str(t_value):
+	if test_labels[i]!=t_value:
 		c=c+1
-		if t_value=='nspam':
+		if t_value==1:
 			c_ws=c_ws+1
 		else:
 			c_wns=c_wns+1
-print "#######################################"
+
+################################################################################
+
+
+print "*"*60
 print "Running on part",sys.argv[1]
 print "Total Mails:",len(test_mails)
 print "Total Spam:", c_s
@@ -102,3 +102,7 @@ print "Total nSpam:", c_ns
 print "Total Misclassified:"+str(c)
 print "Misclassified Spam:"+str(c_ws)
 print "Misclassified nSpam:"+str(c_wns)
+print "\nConfusion Matrix"
+print confusion_matrix(test_labels,predicted_labels, labels = [0,1])
+print "\nClassification Report\n",classification_report(test_labels,predicted_labels,target_names=['spam','nSpam'])
+print "*"*60
