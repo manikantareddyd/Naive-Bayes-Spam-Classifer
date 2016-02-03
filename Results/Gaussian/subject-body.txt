@@ -1,0 +1,220 @@
+************************************************************
+Running on part 1
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:22
+Misclassified Spam:21
+Misclassified nSpam:1
+
+Confusion Matrix
+[[ 27  21]
+ [  1 240]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.96      0.56      0.71        48
+      nSpam       0.92      1.00      0.96       241
+
+avg / total       0.93      0.92      0.92       289
+
+************************************************************
+************************************************************
+Running on part 2
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:18
+Misclassified Spam:17
+Misclassified nSpam:1
+
+Confusion Matrix
+[[ 31  17]
+ [  1 240]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.97      0.65      0.78        48
+      nSpam       0.93      1.00      0.96       241
+
+avg / total       0.94      0.94      0.93       289
+
+************************************************************
+************************************************************
+Running on part 3
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:16
+Misclassified Spam:15
+Misclassified nSpam:1
+
+Confusion Matrix
+[[ 33  15]
+ [  1 240]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.97      0.69      0.80        48
+      nSpam       0.94      1.00      0.97       241
+
+avg / total       0.95      0.94      0.94       289
+
+************************************************************
+************************************************************
+Running on part 4
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:14
+Misclassified Spam:14
+Misclassified nSpam:0
+
+Confusion Matrix
+[[ 34  14]
+ [  0 241]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       1.00      0.71      0.83        48
+      nSpam       0.95      1.00      0.97       241
+
+avg / total       0.95      0.95      0.95       289
+
+************************************************************
+************************************************************
+Running on part 5
+Total Mails: 290
+Total Spam: 48
+Total nSpam: 242
+Total Misclassified:14
+Misclassified Spam:14
+Misclassified nSpam:0
+
+Confusion Matrix
+[[ 34  14]
+ [  0 242]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       1.00      0.71      0.83        48
+      nSpam       0.95      1.00      0.97       242
+
+avg / total       0.95      0.95      0.95       290
+
+************************************************************
+************************************************************
+Running on part 6
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:13
+Misclassified Spam:13
+Misclassified nSpam:0
+
+Confusion Matrix
+[[ 35  13]
+ [  0 241]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       1.00      0.73      0.84        48
+      nSpam       0.95      1.00      0.97       241
+
+avg / total       0.96      0.96      0.95       289
+
+************************************************************
+************************************************************
+Running on part 7
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:14
+Misclassified Spam:14
+Misclassified nSpam:0
+
+Confusion Matrix
+[[ 34  14]
+ [  0 241]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       1.00      0.71      0.83        48
+      nSpam       0.95      1.00      0.97       241
+
+avg / total       0.95      0.95      0.95       289
+
+************************************************************
+************************************************************
+Running on part 8
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:17
+Misclassified Spam:14
+Misclassified nSpam:3
+
+Confusion Matrix
+[[ 34  14]
+ [  3 238]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.92      0.71      0.80        48
+      nSpam       0.94      0.99      0.97       241
+
+avg / total       0.94      0.94      0.94       289
+
+************************************************************
+************************************************************
+Running on part 9
+Total Mails: 289
+Total Spam: 48
+Total nSpam: 241
+Total Misclassified:17
+Misclassified Spam:16
+Misclassified nSpam:1
+
+Confusion Matrix
+[[ 32  16]
+ [  1 240]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.97      0.67      0.79        48
+      nSpam       0.94      1.00      0.97       241
+
+avg / total       0.94      0.94      0.94       289
+
+************************************************************
+************************************************************
+Running on part 10
+Total Mails: 291
+Total Spam: 49
+Total nSpam: 242
+Total Misclassified:16
+Misclassified Spam:15
+Misclassified nSpam:1
+
+Confusion Matrix
+[[ 34  15]
+ [  1 241]]
+
+Classification Report
+             precision    recall  f1-score   support
+
+       spam       0.97      0.69      0.81        49
+      nSpam       0.94      1.00      0.97       242
+
+avg / total       0.95      0.95      0.94       291
+
+************************************************************
