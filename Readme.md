@@ -78,6 +78,8 @@ The data has been cross validated 10 fold.
 As can be clearly seen Multinomial Naïve Bayes out performs Gaussian Naïve Bayes.
 It can be observed that the precision of classifier, by using a Gaussian Distribution, is high in comparison to the recall in same case. In fact, the recall in Gaussian NB seems pretty low.
 
+![IMAGE](./Results/plot.png)
+
 Although the accuracy of GaussianNB is over 90%, the MultinomialNB offers nearly perfect predictions. Further reading on this debate suggests that practically MultinomialNB bids over GaussianNB for the particular problem of Text Classification.
 
 
