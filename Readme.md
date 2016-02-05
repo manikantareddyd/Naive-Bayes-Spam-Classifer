@@ -16,58 +16,60 @@ Though stop words usually refer to the most common words in a language, there is
 In Lemmatizing, as the name suggests, we lemmatize the words to their root, i, e. break and breaking would be lemmatized to break. In this way we are able to identify words that mean the same into ne frequency class. This helps to introduce a semantic element to the classification problem, which initially neglected any order in data.  
 The data has been cross validated 10 fold.
 
- + Precision: 	Of all things labelled as spam, how many are actually spam
+ + Precision:   Of all things labelled as spam, how many are actually spam
 
- + Recall:		Of all things that are truly spam, how many did we label
+ + Recall:    Of all things that are truly spam, how many did we label
 
- + Accuracy:	Of all things, how many did we correctly label
-
-
-    Lemmatized words and Trimmed stop words
-    | Cross |           Gaussian              |           Multinomial         |
-    |-------|----------|-------------|--------|----------|-----------|--------|
-    |       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
-    | 1     | 0.93     | 1.00        | 0.58   | 0.99     | 0.96      | 1.00   |
-    | 2     | 0.95     | 0.97        | 0.71   | 0.99     | 0.96      | 1.00   |
-    | 3     | 0.94     | 1.00        | 0.67   | 0.99     | 0.96      | 1.00   |
-    | 4     | 0.93     | 1.00        | 0.60   | 1.00     | 0.98      | 1.00   |
-    | 5     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 0.98   |
-    | 6     | 0.95     | 1.00        | 0.69   | 1.00     | 1.00      | 1.00   |
-    | 7     | 0.95     | 1.00        | 0.71   | 0.99     | 0.98      | 0.98   |
-    | 8     | 0.93     | 0.85        | 0.73   | 0.99     | 0.96      | 1.00   |
-    | 9     | 0.96     | 1.00        | 0.73   | 0.98     | 1.00      | 0.88   |
-    | 10    | 0.95     | 0.97        | 0.71   | 0.99     | 1.00      | 0.94   |
+ + Accuracy:  Of all things, how many did we correctly label
 
 
-    Trimmed Stopwords
-    | Cross |           Gaussian              |           Multinomial         |
-    |-------|----------|-------------|--------|----------|-----------|--------|
-    |       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
-    | 1     | 0.92     | 0.96        | 0.56   | 0.99     | 0.98      | 0.98   |
-    | 2     | 0.94     | 0.97        | 0.65   | 0.99     | 0.96      | 1.00   |
-    | 3     | 0.94     | 0.97        | 0.69   | 0.99     | 0.96      | 1.00   |
-    | 4     | 0.95     | 1.00        | 0.71   | 1.00     | 0.98      | 1.00   |
-    | 5     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 1.00   |
-    | 6     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 1.00   |
-    | 7     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 0.98   |
-    | 8     | 0.94     | 0.92        | 0.71   | 0.99     | 0.94      | 1.00   |
-    | 9     | 0.94     | 0.97        | 0.67   | 0.98     | 0.98      | 0.88   |
-    | 10    | 0.95     | 0.97        | 0.81   | 0.99     | 1.00      | 0.94   |
+        Results
 
-    Subject + Body only
-    | Cross |           Gaussian              |           Multinomial         |
-    |-------|----------|-------------|--------|----------|-----------|--------|
-    |       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
-    | 1     | 0.92     | 0.96        | 0.56   | 0.99     | 0.94      | 0.98   |
-    | 2     | 0.94     | 0.97        | 0.65   | 0.99     | 0.92      | 1.00   |
-    | 3     | 0.94     | 0.97        | 0.69   | 0.99     | 0.96      | 1.00   |
-    | 4     | 0.95     | 1.00        | 0.71   | 0.99     | 0.96      | 1.00   |
-    | 5     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 1.00   |
-    | 6     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 1.00   |
-    | 7     | 0.95     | 1.00        | 0.71   | 0.99     | 0.98      | 0.98   |
-    | 8     | 0.94     | 0.92        | 0.71   | 0.98     | 0.91      | 1.00   |
-    | 9     | 0.94     | 0.97        | 0.67   | 0.99     | 0.98      | 0.98   |
-    | 10    | 0.95     | 0.97        | 0.69   | 0.99     | 1.00      | 0.94   |
+Lemmatized words and Trimmed stop words
+| Cross |           Gaussian              |           Multinomial         |
+|-------|----------|-------------|--------|----------|-----------|--------|
+|       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
+| 1     | 0.93     | 1.00        | 0.58   | 0.99     | 0.96      | 1.00   |
+| 2     | 0.95     | 0.97        | 0.71   | 0.99     | 0.96      | 1.00   |
+| 3     | 0.94     | 1.00        | 0.67   | 0.99     | 0.96      | 1.00   |
+| 4     | 0.93     | 1.00        | 0.60   | 1.00     | 0.98      | 1.00   |
+| 5     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 0.98   |
+| 6     | 0.95     | 1.00        | 0.69   | 1.00     | 1.00      | 1.00   |
+| 7     | 0.95     | 1.00        | 0.71   | 0.99     | 0.98      | 0.98   |
+| 8     | 0.93     | 0.85        | 0.73   | 0.99     | 0.96      | 1.00   |
+| 9     | 0.96     | 1.00        | 0.73   | 0.98     | 1.00      | 0.88   |
+| 10    | 0.95     | 0.97        | 0.71   | 0.99     | 1.00      | 0.94   |
+
+
+Trimmed Stopwords
+| Cross |           Gaussian              |           Multinomial         |
+|-------|----------|-------------|--------|----------|-----------|--------|
+|       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
+| 1     | 0.92     | 0.96        | 0.56   | 0.99     | 0.98      | 0.98   |
+| 2     | 0.94     | 0.97        | 0.65   | 0.99     | 0.96      | 1.00   |
+| 3     | 0.94     | 0.97        | 0.69   | 0.99     | 0.96      | 1.00   |
+| 4     | 0.95     | 1.00        | 0.71   | 1.00     | 0.98      | 1.00   |
+| 5     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 1.00   |
+| 6     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 1.00   |
+| 7     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 0.98   |
+| 8     | 0.94     | 0.92        | 0.71   | 0.99     | 0.94      | 1.00   |
+| 9     | 0.94     | 0.97        | 0.67   | 0.98     | 0.98      | 0.88   |
+| 10    | 0.95     | 0.97        | 0.81   | 0.99     | 1.00      | 0.94   |
+
+Subject + Body only
+| Cross |           Gaussian              |           Multinomial         |
+|-------|----------|-------------|--------|----------|-----------|--------|
+|       | Accuracy | Precision   | Recall | Accuracy | Precision | Recall |
+| 1     | 0.92     | 0.96        | 0.56   | 0.99     | 0.94      | 0.98   |
+| 2     | 0.94     | 0.97        | 0.65   | 0.99     | 0.92      | 1.00   |
+| 3     | 0.94     | 0.97        | 0.69   | 0.99     | 0.96      | 1.00   |
+| 4     | 0.95     | 1.00        | 0.71   | 0.99     | 0.96      | 1.00   |
+| 5     | 0.95     | 1.00        | 0.71   | 1.00     | 1.00      | 1.00   |
+| 6     | 0.96     | 1.00        | 0.73   | 1.00     | 1.00      | 1.00   |
+| 7     | 0.95     | 1.00        | 0.71   | 0.99     | 0.98      | 0.98   |
+| 8     | 0.94     | 0.92        | 0.71   | 0.98     | 0.91      | 1.00   |
+| 9     | 0.94     | 0.97        | 0.67   | 0.99     | 0.98      | 0.98   |
+| 10    | 0.95     | 0.97        | 0.69   | 0.99     | 1.00      | 0.94   |
 
 
 As can be clearly seen Multinomial Naïve Bayes out performs Gaussian Naïve Bayes.
